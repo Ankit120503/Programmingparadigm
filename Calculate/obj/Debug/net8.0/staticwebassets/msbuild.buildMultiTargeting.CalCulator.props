@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CalCulator.props" />
+</Project>

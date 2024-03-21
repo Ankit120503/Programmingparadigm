@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Ankit's Calculator</title>
+</head>
+<h1 class="display-4">Welcome to Ankit's Calculator</h1>
+<form>
+<input id="num1" type="text" style="border: 1px solid black; padding: 5px;">
+    <input id = "num2" type = "text" >
+     <button type="button" onclick="SeeResult()">Check</button>
+          <button type="button" onclick="recursion()">recursion</button>
+
+    <select id="operation" >
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+</form>
+
+<script>
+    function SeeResult() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var operation = document.getElementById("operation").value;
+        var sum;
+
+        switch(operation) {
+            case '+': sum = num1 + num2; break;
+            case '-': sum = num1 - num2; break;
+            case '*': sum = num1 * num2; break;
+            case '/': sum = num1 / num2; break;
+            default: sum = "";
+        }
+
+        alert("Result: " + sum);
+    }
+     // Tail recursion
+        function recursion(n) {
+            return recursion1(n, 1);
+        }
+
+        function recursion1(n, acc) {
+            if (n === 0) {
+                return acc;
+            } else {
+                return recursion1(n - 1, acc * n);
+            }
+        }
+
+        // Example usage of recursion function
+        var recursionResult = recursion(5);
+        document.getElementById("result").innerText = "recursion of 5: " + recursionResult;
+
+</script>
